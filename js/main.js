@@ -399,37 +399,102 @@ function selectPack(pack, event) {
   }
 }
 
-// ===== PROCESS WHATSAPP ORDER =====
+// ===== PROCESS WHATSAPP ORDER (Auto Pre-Fills Message) =====
 async function processWhatsAppOrder() {
   if (!selectedPack || !currentPlayerId) {
     alert("⚠️ Please verify your Player ID and select a diamond pack");
     return;
   }
 
-  const amountLabel = typeof selectedPack.diamonds === 'number' ? `${selectedPack.diamonds} Diamonds` : selectedPack.diamonds;
-  const bonusText = selectedPack.bonus > 0 ? ` (+${selectedPack.bonus} Bonus)` : "";
-  
-  // Format the WhatsApp message
-  const message = `🎮 *NEW TOP-UP ORDER - DANUKAYA FF* 🎮\n` +
-                  `----------------------------------\n` +
-                  `🆔 *Player ID:* ${currentPlayerId}\n` +
-                  `👤 *Player Name:* ${currentPlayerName}\n` +
-                  `💎 *Pack:* ${amountLabel}${bonusText}\n` +
-                  `💰 *Price:* ${selectedPack.price}\n` +
-                  `----------------------------------\n` +
-                  `✅ I have selected this pack. Please proceed with my top-up!`;
-
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/94770389537?text=${encodedMessage}`;
+  const packName = typeof selectedPack.diamonds === 'number' ? `${selectedPack.diamonds} Diamonds` : selectedPack.diamonds;
 
   try {
-    // Record the order in admin panel first to get a valid ID
+    // 1. Save order to admin panel
     const orderData = {
       userIdentifier: currentAuthenticatedUser?.identifier || null,
       playerId: currentPlayerId,
       playerName: currentPlayerName,
       pack: selectedPack,
       paymentMethod: 'WhatsApp',
+      timestamp: new Date().toISOString(),
+    };
+
+    const response = await fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      currentProcessingOrderId = data.order.id;
+
+      // 2. Build WhatsApp message
+      const settingsRes = await fetch('/api/settings');
+      const settings = await settingsRes.json();
+      const rawNumber = (settings.whatsappNumber || '94770389537').replace(/[\s\+\-()]/g, '');
+
+      const waMessage = [
+        'NEW ORDER - Danukaya Top Up',
+        '',
+        'Order ID: #' + data.order.id,
+        'Player Name: ' + currentPlayerName,
+        'Player ID: ' + currentPlayerId,
+        'Pack: ' + packName,
+        'Price: ' + selectedPack.price,
+        '',
+        'Please confirm and process my order. Thank you!'
+      ].join('\n');
+
+      const waUrl = 'https://wa.me/' + rawNumber + '?text=' + encodeURIComponent(waMessage);
+
+      // 3. Open WhatsApp with pre-filled message
+      window.open(waUrl, '_blank');
+
+      // 4. Show processing modal
+      showProcessingModal(data.order);
+      startPollingStatus(currentProcessingOrderId);
+    }
+  } catch (e) {
+    console.error("Order process failed", e);
+    alert("⚠️ Failed to initiate order. Please try again.");
+  }
+
+  resetFormWithDelay();
+}
+
+// ===== PROCESS TELEGRAM ORDER =====
+
+async function processTelegramOrder() {
+  if (!selectedPack || !currentPlayerId) {
+    alert("⚠️ Please verify your Player ID and select a diamond pack");
+    return;
+  }
+
+  const packName = typeof selectedPack.diamonds === 'number' ? `${selectedPack.diamonds} Diamonds` : selectedPack.diamonds;
+  
+  // Format requested: /id [ID] [Pack Name]
+  const message = `/id ${currentPlayerId} ${packName}`;
+  
+  // 1. Copy to clipboard automatically (Most reliable workaround for Telegram)
+  try {
+    navigator.clipboard.writeText(message);
+    // Removed blocking alert to allow browser redirect to work better
+  } catch (err) {
+    console.warn("Clipboard copy failed", err);
+  }
+
+  // Using a more universal Telegram link that works well with browsers
+  const telegramUrl = `https://t.me/+94778380753`;
+
+  try {
+    // Record the order in admin panel
+    const orderData = {
+      userIdentifier: currentAuthenticatedUser?.identifier || null,
+      playerId: currentPlayerId,
+      playerName: currentPlayerName,
+      pack: selectedPack,
+      paymentMethod: 'Telegram',
       timestamp: new Date().toISOString(),
     };
     
@@ -443,24 +508,41 @@ async function processWhatsAppOrder() {
         const data = await response.json();
         currentProcessingOrderId = data.order.id;
         
-        // Format the WhatsApp message with order ID
-        const message = `🎮 *NEW TOP-UP ORDER - DANUKAYA FF* 🎮\n` +
-                        `----------------------------------\n` +
-                        `🔢 *Order ID:* #${currentProcessingOrderId}\n` +
-                        `🆔 *Player ID:* ${currentPlayerId}\n` +
-                        `👤 *Player Name:* ${currentPlayerName}\n` +
-                        `💎 *Pack:* ${amountLabel}${bonusText}\n` +
-                        `💰 *Price:* ${selectedPack.price}\n` +
-                        `----------------------------------\n` +
-                        `✅ I have selected this pack. Please proceed with my top-up!`;
+        // Step 1: Open Telegram instantly
+        window.open(telegramUrl, '_blank');
 
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/94770389537?text=${encodedMessage}`;
+        // Step 2: Auto WhatsApp message to admin
+        try {
+            const settingsRes = await fetch('/api/settings');
+            const settings = await settingsRes.json();
+            const rawNumber = (settings.whatsappNumber || '').replace(/[\s\+\-()]/g, '');
+            
+            if (rawNumber) {
+                const waMessage = [
+                    'NEW ORDER RECEIVED!',
+                    '',
+                    'Order ID: #' + data.order.id,
+                    'Time: ' + new Date().toLocaleString('en-LK'),
+                    '',
+                    'Player Name: ' + currentPlayerName,
+                    'Player ID: ' + currentPlayerId,
+                    'Pack: ' + packName,
+                    'Price: ' + selectedPack.price,
+                    'Payment: Telegram',
+                    '',
+                    'Please process this order!'
+                ].join('\n');
 
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
+                const waUrl = 'https://wa.me/' + rawNumber + '?text=' + encodeURIComponent(waMessage);
+                console.log('WhatsApp URL:', waUrl);
+                setTimeout(() => { window.open(waUrl, '_blank'); }, 800);
+                console.log('WhatsApp alert sent to: +' + rawNumber);
+            }
+        } catch (waErr) {
+            console.warn('WhatsApp auto-open failed:', waErr);
+        }
         
-        // Show "Processing" modal locally
+        // Show "Processing" modal
         showProcessingModal(data.order);
         
         // Start polling for status update
@@ -628,30 +710,30 @@ function showProcessingModal(order) {
     const icon = modal.querySelector('.modal-icon');
     const text = modal.querySelector('.modal-text');
     
-    // Change to Processing state
-    title.innerText = "Order Processing...";
-    icon.innerText = "⏳";
-    icon.style.filter = "drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))";
-    text.innerText = "Your request has been sent via WhatsApp. Please wait for the admin to complete your top-up.";
+    // Change to Processing state - WhatsApp
+    title.innerText = "Order Sent via WhatsApp!";
+    icon.innerText = "💬";
+    icon.style.filter = "drop-shadow(0 0 20px rgba(37, 211, 102, 0.6))";
+    text.innerText = "WhatsApp open වෙලා ඔබේ order details automatically type වෙලා ඇත. ✓ Send button press කරන්නම යි!";
 
     const amountLabel = typeof order.pack.diamonds === 'number' ? `${order.pack.diamonds} Diamonds` : order.pack.diamonds;
 
     details.innerHTML = `
         <div class="modal-detail-row">
+            <span class="modal-detail-label">Pack:</span>
+            <span class="modal-detail-value" style="background: rgba(37, 211, 102, 0.1); padding: 5px 10px; border-radius: 5px; color: #25D366; font-weight: bold;">${amountLabel}</span>
+        </div>
+        <div class="modal-detail-row">
+            <span class="modal-detail-label">Player ID:</span>
+            <span class="modal-detail-value">${order.playerId}</span>
+        </div>
+        <div class="modal-detail-row">
             <span class="modal-detail-label">Request ID:</span>
             <span class="modal-detail-value">#${order.id}</span>
         </div>
         <div class="modal-detail-row">
-            <span class="modal-detail-label">Player:</span>
-            <span class="modal-detail-value">${order.playerName} (${order.playerId})</span>
-        </div>
-        <div class="modal-detail-row">
-            <span class="modal-detail-label">Product:</span>
-            <span class="modal-detail-value">${amountLabel}</span>
-        </div>
-        <div class="modal-detail-row">
             <span class="modal-detail-label">Status:</span>
-            <span class="modal-detail-value" style="color: var(--warning)">Pending Verification</span>
+            <span class="modal-detail-value" style="color: var(--warning)">Waiting for Confirmation</span>
         </div>
     `;
 

@@ -221,8 +221,38 @@ app.post('/api/orders', (req, res) => {
         });
     }
 
+    // ===== AUTO WHATSAPP NOTIFICATION =====
+    try {
+        const settings = getData(SETTINGS_FILE, {});
+        const whatsappNumber = (settings.whatsappNumber || '').replace(/[\s\+\-()]/g, '');
+        
+        if (whatsappNumber) {
+            const orderTime = new Date(order.timestamp).toLocaleString('en-LK', { timeZone: 'Asia/Colombo' });
+            const msgLines = [
+                'NEW ORDER RECEIVED!',
+                '',
+                'Order ID: #' + order.id,
+                'Time: ' + orderTime,
+                '',
+                'Player Name: ' + (orderData.playerName || 'Unknown'),
+                'Player ID: ' + orderData.playerId,
+                'Pack: ' + (orderData.pack?.diamonds || '-'),
+                'Price: ' + (orderData.pack?.price || '-'),
+                'Payment: ' + (orderData.paymentMethod || '-'),
+                '',
+                'Please process this order!'
+            ];
+            const message = msgLines.join('\n');
+            const waLink = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+            console.log('WhatsApp Notification Link:\n' + waLink);
+            console.log('New order #' + order.id + ' - WhatsApp alert ready for: +' + whatsappNumber);
+        }
+    } catch (notifErr) {
+        console.error('WhatsApp notification error:', notifErr.message);
+    }
+
     console.log(`📦 New Order Saved: ${order.id}`);
-    res.json({ success: true, order });
+    res.json({ success: true, order, whatsappAlert: true });
 });
 
 // Get order status

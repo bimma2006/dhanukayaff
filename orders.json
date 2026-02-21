@@ -1,5 +1,275 @@
 [
   {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "12345678",
+    "playerName": "Player_12345678",
+    "pack": {
+      "id": 2,
+      "diamonds": "50",
+      "price": "LKR 150",
+      "category": "diamonds",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "images/diamond-pack.png"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:56:53.176Z",
+    "id": 1771649813176,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "12345678",
+    "playerName": "Player_12345678",
+    "pack": {
+      "id": 1,
+      "diamonds": "25",
+      "price": "LKR 75",
+      "category": "diamonds",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "images/diamond-pack.png"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:55:08.889Z",
+    "id": 1771649708889,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "12345678",
+    "playerName": "Player_12345678",
+    "pack": {
+      "id": 5,
+      "diamonds": "310",
+      "price": "LKR 870",
+      "category": "diamonds",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "images/diamond-pack.png"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:51:33.537Z",
+    "id": 1771649493537,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "12345678",
+    "playerName": "Player_12345678",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:44:17.617Z",
+    "id": 1771649057617,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "SMS",
+    "timestamp": "2026-02-21T04:27:05.320Z",
+    "id": 1771648025320,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "SMS",
+    "timestamp": "2026-02-21T04:26:35.240Z",
+    "id": 1771647995240,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "WhatsApp",
+    "timestamp": "2026-02-21T04:25:51.992Z",
+    "id": 1771647951992,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "WhatsApp",
+    "timestamp": "2026-02-21T04:22:11.544Z",
+    "id": 1771647731544,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:19:49.897Z",
+    "id": 1771647589897,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:09:41.568Z",
+    "id": 1771646981568,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:08:32.855Z",
+    "id": 1771646912855,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "support@danukayatopup.com",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "WhatsApp",
+    "timestamp": "2026-02-21T04:05:44.655Z",
+    "id": 1771646744655,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "0773274491",
+    "playerId": "147073162",
+    "playerName": "Player_147073162",
+    "pack": {
+      "id": 17,
+      "diamonds": "Weekly Lite Membership",
+      "price": "LKR 130",
+      "category": "membership",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "/uploads/pack_1771600139391.jpeg"
+    },
+    "paymentMethod": "Telegram",
+    "timestamp": "2026-02-21T04:01:20.704Z",
+    "id": 1771646480704,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "0773274491",
+    "playerId": "12345678",
+    "playerName": "Player_12345678",
+    "pack": {
+      "id": 1,
+      "diamonds": "25",
+      "price": "LKR 75",
+      "category": "diamonds",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "images/diamond-pack.png"
+    },
+    "paymentMethod": "WhatsApp",
+    "timestamp": "2026-02-21T03:55:13.895Z",
+    "id": 1771646113895,
+    "status": "pending"
+  },
+  {
+    "userIdentifier": "0773274491",
+    "playerId": "123456789",
+    "playerName": "Player_123456789",
+    "pack": {
+      "id": 1,
+      "diamonds": "25",
+      "price": "LKR 75",
+      "category": "diamonds",
+      "popular": false,
+      "bonus": 0,
+      "imageUrl": "images/diamond-pack.png"
+    },
+    "paymentMethod": "WhatsApp",
+    "timestamp": "2026-02-21T03:38:07.227Z",
+    "id": 1771645087227,
+    "status": "processing"
+  },
+  {
     "playerId": "12345678",
     "playerName": "Player_12345678",
     "pack": {
