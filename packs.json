@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "diamonds": "25",
+    "price": "LKR 75",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 2,
+    "diamonds": "50",
+    "price": "LKR 150",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 3,
+    "diamonds": "100",
+    "price": "LKR 285",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 4,
+    "diamonds": "200",
+    "price": "LKR 570",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 5,
+    "diamonds": "310",
+    "price": "LKR 870",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 6,
+    "diamonds": "520",
+    "price": "LKR 1450",
+    "category": "diamonds",
+    "popular": true,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 7,
+    "diamonds": "1060",
+    "price": "LKR 2850",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 8,
+    "diamonds": "1580",
+    "price": "LKR 4300",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 9,
+    "diamonds": "2180",
+    "price": "LKR 5780",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 10,
+    "diamonds": "3240",
+    "price": "LKR 8600",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 11,
+    "diamonds": "5000",
+    "price": "LKR 13300",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 12,
+    "diamonds": "5600",
+    "price": "LKR 14200",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 13,
+    "diamonds": "6660",
+    "price": "LKR 17070",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 14,
+    "diamonds": "7720",
+    "price": "LKR 19915",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 15,
+    "diamonds": "10060",
+    "price": "LKR 26000",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 16,
+    "diamonds": "11500",
+    "price": "LKR 29300",
+    "category": "diamonds",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 17,
+    "diamonds": "Weekly Lite Membership",
+    "price": "LKR 130",
+    "category": "membership",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "/uploads/pack_1771600139391.jpeg"
+  },
+  {
+    "id": 18,
+    "diamonds": "Weekly Membership",
+    "price": "LKR 490",
+    "category": "membership",
+    "popular": true,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 19,
+    "diamonds": "Weekly Max Membership",
+    "price": "LKR 620",
+    "category": "membership",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 20,
+    "diamonds": "Monthly Membership",
+    "price": "LKR 2450",
+    "category": "membership",
+    "popular": true,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 21,
+    "diamonds": "VIP Membership",
+    "price": "LKR 2940",
+    "category": "membership",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 22,
+    "diamonds": "Super VIP Membership",
+    "price": "LKR 4400",
+    "category": "membership",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 23,
+    "diamonds": "3 Days Evo Access",
+    "price": "LKR 170",
+    "category": "evo",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 24,
+    "diamonds": "7 Days Evo Access",
+    "price": "LKR 250",
+    "category": "evo",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  },
+  {
+    "id": 25,
+    "diamonds": "30 Days Evo Access",
+    "price": "LKR 750",
+    "category": "evo",
+    "popular": false,
+    "bonus": 0,
+    "imageUrl": "images/diamond-pack.png"
+  }
+]

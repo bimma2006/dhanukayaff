@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danukaya Top Up - Free Fire Diamond Top-Up Center</title>
+    <meta
+      name="description"
+      content="Danukaya Top Up - Fast and secure Free Fire diamond top-up service. Get your diamonds instantly!"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Top Login Status Bar -->
+    <div id="customerBadge" class="customer-top-bar" style="display: none;">
+      <div class="container">
+        <div class="top-bar-content">
+          <div class="user-info">
+            <span class="user-icon">👤</span>
+            <span class="user-label">Logged in as:</span>
+            <span id="accountIdText" class="user-id"></span>
+          </div>
+          <button class="logout-btn" onclick="logoutCustomer()">Logout Account</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garena Styled Header -->
+    <header class="header garena-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="garena-brand">
+            <!-- Logo removed as per user request -->
+          </div>
+          <!-- No right section icons -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Upcoming Events Slider -->
+    <section class="events-slider-section" id="home" style="padding: 2.5rem 0; background: #f8f8f8;">
+      <div class="container">
+        <div class="hero-brand-section">
+          <div class="hero-flex-layout">
+            <!-- text content on the left -->
+            <div class="garena-banner-v3">
+              <h1 class="banner-red-text store-name-display" style="text-transform: uppercase;">DANUKAYA TOP UP</h1>
+              <div class="banner-bottom-row">
+                  <h1 class="banner-red-text" style="font-size: 4.5rem; letter-spacing: -2px;">NEW</h1>
+                  <div class="banner-official-box" style="border-left: 3px solid #e60000;">
+                      <span style="color: #e60000; font-weight: 900;">OFFICIAL</span>
+                      <span style="color: #333;">TOP UP CENTER</span>
+                  </div>
+              </div>
+            </div>
+
+            <!-- profile box on the right -->
+            <div class="hero-profile-box">
+               <div class="profile-3d-ring">
+                  <img src="uploads/pack_1771601527850.PNG" alt="Profile" class="profile-img-3d" onerror="this.src='images/admin-profile.jpg'">
+               </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div class="slider-container" id="eventsSlider">
+                <!-- Slides loaded via JS -->
+            </div>
+            <button class="slider-btn prev" onclick="moveSlider(-1)">❮</button>
+            <button class="slider-btn next" onclick="moveSlider(1)">❯</button>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Badges Strip -->
+    <section class="trust-strip">
+       <div class="container flex-row">
+          <div class="trust-badges">
+             <div class="trust-badge"><span class="badge-icon">🛡️</span> SAFER</div>
+             <div class="trust-badge"><span class="badge-icon">🕒</span> FASTER</div>
+             <div class="trust-badge"><span class="badge-icon">🤝</span> EASIER</div>
+          </div>
+       </div>
+    </section>
+
+    <!-- Top-Up Section -->
+    <section class="topup-section" id="topup">
+      <div class="container">
+        <div class="section-header-garena">
+          <h2 class="garena-section-title">Game Selection</h2>
+        </div>
+
+        <!-- Step 1: Player ID Input -->
+        <div class="topup-card" id="step1">
+          <div class="card-header">
+            <span class="step-badge">1</span>
+            <h3>Login</h3>
+          </div>
+          <div class="card-body">
+            <!-- Game Selector Grid (Supports future additions) -->
+            <div id="gameSelector" class="game-selector-grid">
+              <div class="game-item active" onclick="showAuth('freefire')">
+                <div class="game-logo-box">
+                  <img src="images/ff-logo.png" alt="Free Fire" class="game-icon" id="icon-freefire">
+                </div>
+                <span>Free Fire</span>
+              </div>
+              <div class="game-item" onclick="showAuth('freefiremax')">
+                <div class="game-logo-box">
+                  <img src="images/ff-logo.png" alt="FF MAX" class="game-icon" style="filter: hue-rotate(0deg);" id="icon-freefiremax">
+                </div>
+                <span>Free Fire MAX</span>
+              </div>
+              <div class="game-item" onclick="alert('Free Fire Indonesia Top Up coming soon!')">
+                <div class="game-logo-box" style="position: relative; overflow: hidden; border-radius: 12px;">
+                  <img src="images/ff-logo.png" alt="FF Indonesia" class="game-icon" style="filter: brightness(1.1) hue-rotate(250deg); border-radius: 12px; transform: scale(1.1);" id="icon-freefireindo">
+                  <div style="position: absolute; bottom: 0; right: 0; background: #e60000; color: white; font-size: 8px; padding: 2px 4px; border-radius: 4px; font-weight: bold; border: 1px solid white; z-index: 2;">ID</div>
+                </div>
+                <span>Free Fire Indonesia</span>
+              </div>
+              <div class="game-item" onclick="alert('Call of Duty Top Up coming soon!')">
+                <div class="game-logo-box">
+                  <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938090/06107605348820087bb51ca89ed620c22fe559aa/header.jpg" alt="COD" class="game-icon" style="object-fit: cover; height: 100%;" id="icon-cod">
+                </div>
+                <span>Call of Duty</span>
+              </div>
+              <div class="game-item" onclick="alert('Blood Strike Top Up coming soon!')">
+                <div class="game-logo-box" style="background: #1a0000; border: 1px solid #e60000;">
+                  <img src="https://www.blood-strike.com/pc/zt/20230616173030/data/share.jpg" alt="Blood Strike" class="game-icon" style="object-fit: cover;" id="icon-bloodstrike">
+                </div>
+                <span>Blood Strike</span>
+              </div>
+            </div>
+            
+            <!-- Combined Trust Banner (Mascot + Secure Payment) -->
+            <div class="trust-banner-combined">
+               <div class="trust-banner-left">
+                  <div class="trust-mascot-box">
+                     <img src="uploads/pack_1771601527850.PNG" alt="Dhanukaya Mascot" onerror="this.src='images/admin-profile.jpg'">
+                  </div>
+                  <div class="trust-text-info">
+                     <h4>DANUKAYA OFFICIAL</h4>
+                     <p>Premium Top Up Partner • Verified Seller</p>
+                  </div>
+               </div>
+               <div class="trust-secure-badge-static">
+                  <span class="shield-icon">🛡️</span> 100% SECURE PAYMENT
+               </div>
+            </div>
+
+            <!-- Customer Authentication Section (Garena Style) -->
+            <div id="authSection" class="auth-container" style="display: none; animation: slideUp 0.5s ease both;">
+              
+              <!-- Selected Game Red Bar (Matches Screenshot) -->
+              <div class="selected-game-bar">
+                 <div class="game-info-mini">
+                    <div class="mini-shell-box" style="width: 50px; height: 50px;">
+                       <img src="uploads/pack_1771601527850.PNG" alt="Mascot" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" onerror="this.src='images/admin-profile.jpg'">
+                    </div>
+                    <span class="mini-game-name" id="selectedGameName">Free Fire Top Up</span>
+                 </div>
+                 <div class="secure-badge">
+                    <span class="check-icon">✓</span> 100% Secure Payment
+                 </div>
+              </div>
+
+              <div id="loginForm" class="auth-form-garena">
+                <div class="garena-input-wrapper">
+                    <input type="text" id="loginIdentifier" class="garena-login-input" placeholder="Username, Email, Phone or NIC">
+                </div>
+                <div class="garena-input-wrapper" style="margin-top: 10px;">
+                    <input type="password" id="loginPassword" class="garena-login-input" placeholder="Password">
+                </div>
+                
+                <button class="btn btn-primary garena-btn" onclick="handleLogin()">Login to Account</button>
+                <p class="auth-switch-garena">Don't have an account? <a href="javascript:void(0)" onclick="toggleAuthMode('signup')">Sign Up Now</a></p>
+              </div>
+
+              <div id="signupForm" class="auth-form-garena" style="display: none;">
+                <div class="garena-input-wrapper">
+                    <input type="text" id="signupUsername" class="garena-login-input" placeholder="Create Username">
+                </div>
+                <div class="garena-input-wrapper" style="margin-top: 10px;">
+                    <input type="email" id="signupEmail" class="garena-login-input" placeholder="Email Address">
+                </div>
+                <div class="garena-input-wrapper" style="margin-top: 10px;">
+                    <input type="tel" id="signupPhone" class="garena-login-input" placeholder="Phone Number">
+                </div>
+                <div class="garena-input-wrapper" style="margin-top: 10px;">
+                    <input type="text" id="signupNIC" class="garena-login-input" placeholder="NIC Number (Official ID)">
+                </div>
+                <div class="garena-input-wrapper" style="margin-top: 10px;">
+                    <input type="password" id="signupPassword" class="garena-login-input" placeholder="Create Password">
+                </div>
+                
+                <button class="btn btn-primary garena-btn" onclick="handleSignup()">Create Account</button>
+                <p class="auth-switch-garena">Already have an account? <a href="javascript:void(0)" onclick="toggleAuthMode('login')">Login Instead</a></p>
+              </div>
+            </div>
+
+            <div id="idInputForm" class="id-input-container" style="display: none; animation: slideRight 0.5s ease both;">
+              <div class="input-group">
+                <label for="playerId">Enter Player ID</label>
+                <div class="input-with-icon">
+                    <input
+                      type="text"
+                      id="playerId"
+                      placeholder="e.g., 1234567890"
+                      maxlength="12"
+                    />
+                    <span class="input-clear" onclick="document.getElementById('playerId').value=''">✕</span>
+                </div>
+                <div class="input-hint">
+                  Your ID is in your game profile.
+                </div>
+              </div>
+              <button class="btn btn-primary btn-large" id="verifyBtn" onclick="verifyPlayerId()">
+                <span class="btn-text">Verify & Proceed</span>
+                <span class="btn-loader" style="display: none">⏳</span>
+              </button>
+            </div>
+            <div id="playerInfo" class="player-info-detailed" style="display: none">
+              <div class="player-main">
+                <div class="player-avatar">
+                  <img src="uploads/pack_1771601527850.PNG" alt="Mascot" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #e60000;" onerror="this.src='images/admin-profile.jpg'">
+                </div>
+                <div class="player-primary-details">
+                  <div class="player-name" id="playerName">Loading...</div>
+                  <div class="player-id-display" id="playerIdDisplay"></div>
+                </div>
+                <div class="verified-badge">✓ Verified</div>
+              </div>
+              <div class="player-stats-grid">
+                <div class="stat-box">
+                  <span class="stat-label">Level</span>
+                  <span class="stat-value" id="playerLevel">-</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Region</span>
+                  <span class="stat-value" id="playerRegion">-</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Rank Points</span>
+                  <span class="stat-value" id="playerRank">-</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Clan</span>
+                  <span class="stat-value" id="playerClan">-</span>
+                </div>
+              </div>
+              <div id="playerSignature" class="player-sig"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Payment Method (Separate Card aligned below Step 1) -->
+        <div class="topup-card" id="paymentStep">
+            <div class="card-header">
+                <span class="step-badge">2</span>
+                <h3>Payment Method</h3>
+            </div>
+            <div class="card-body" style="padding: 15px; text-align: center;">
+                <div class="payment-methods-banner" style="background: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03); padding: 5px;">
+                    <img id="payment-methods-img" src="https://www.cepetco.gov.lk/wp-content/uploads/2023/10/payment-methods.webp" alt="Payment Methods" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;" onerror="this.src='images/payment-methods.jpg'">
+                    <p style="font-size: 0.7rem; color: #999; margin-top: 5px;">Secure Payment Partners</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Select Diamond Pack -->
+        <div class="topup-card" id="step2" style="display: none">
+          <div class="card-header">
+            <span class="step-badge">3</span>
+            <h3>Top-up Amount</h3>
+          </div>
+          <div class="card-body">
+            <div class="category-tabs">
+                <button class="category-tab active" onclick="filterPacks('diamonds', event)">💎 Diamonds</button>
+                <button class="category-tab" onclick="filterPacks('membership', event)">🎫 Memberships</button>
+                <button class="category-tab" onclick="filterPacks('evo', event)">🔥 Evo Access</button>
+            </div>
+            <div class="diamond-packs" id="diamondPacks">
+              <!-- Diamond packs will be loaded here -->
+            </div>
+            
+            <!-- Direct Order Button -->
+            <div id="orderAction" style="display: none; margin-top: 3rem; text-align: center; animation: fadeInUp 0.5s ease-out;">
+                <div class="order-summary-mini" style="background: var(--dark-light); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(0,0,0,0.05);">
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Selected Product</p>
+                    <h3 id="selectedPackLabel" style="font-size: 1.5rem; color: var(--text-primary);">-</h3>
+                    <h2 id="selectedPriceLabel" style="font-size: 2rem; color: var(--primary); margin-top: 0.5rem;">-</h2>
+                </div>
+                <button class="btn btn-success btn-large" onclick="processWhatsAppOrder()" style="padding: 1.25rem; font-size: 1.25rem; background: #25D366; border-color: #25D366;">
+                    <span style="margin-right: 10px;">💬</span> SEND ORDER VIA WHATSAPP
+                </button>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem;">Clicking will open WhatsApp with your order details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Danukaya Top Up</h3>
+            <p>Your trusted Free Fire diamond top-up partner</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#topup">Top-Up</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>📧 support@danukayatopup.com</p>
+            <p>📱 WhatsApp: +94 XX XXX XXXX</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Danukaya Top Up. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-card">
+        <div class="modal-icon">✅</div>
+        <h2 class="modal-title">Order Successful!</h2>
+        <p class="modal-text">Your order has been received and is being processed.</p>
+        <div class="modal-details" id="modalDetails">
+          <!-- Details added via JS -->
+        </div>
+        <div class="modal-timer">
+          <span class="timer-icon">⏳</span>
+          <span>Estimated Delivery: 5-10 Minutes</span>
+        </div>
+        <button class="btn btn-primary btn-large" onclick="closeModal()">Back to Home</button>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

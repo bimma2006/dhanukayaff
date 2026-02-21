@@ -1,0 +1,11 @@
+{
+  "storeName": "Danukaya Top Up",
+  "supportEmail": "support@danukayatopup.com",
+  "whatsappNumber": "+94 77 038 9537",
+  "autoTopup": true,
+  "adminProfilePic": "/uploads/pack_1771605543019.jpeg",
+  "gameIcons": {
+    "freefireindo": "/uploads/pack_1771608166704.png"
+  },
+  "paymentMethodsBanner": "/uploads/pack_1771609571968.jpeg"
+}
